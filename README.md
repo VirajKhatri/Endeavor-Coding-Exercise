@@ -1,3 +1,32 @@
+# Things in this exercise
+
+There are two components in this project. One is Home and other is Magazine component.
+
+In home component, user is allowed to choose a display type i.e. Grid, Featured or Grid+Featured, and the other option is to select a screen resolution. Available options for resolution are [640 * 360, 800	* 600, 1024 * 768, 1280 * 720, 1280 * 800, 1280 * 1024, 1360 * 768, 1366 * 768, 1440 * 900, 1536 * 864, 1600 * 900, 1680 * 1050, 1920 * 1080, 1920 * 1200, 2048 * 1152, 2560 * 1080, 2560 * 1440, 3440 * 1440, 3840 * 2160]
+
+Depending upon the selected display and resolution, magazine component will show the output.
+
+# Assests
+
+public/Assest/Images - In here, I have stored all the images i.e. front pages of all the issues
+
+public/Assest/Data - In here, there is a issues.json file which has data about all the issues. 
+    Data Structure: 
+    {
+    "issues": [
+        {
+            "FrontPage": "",
+            "PublishedDate": ""
+        },
+        ...
+    ]
+    
+# Things that can be Improved
+
+Rigorous responsiveness and adaptiveness can be achieved by adding media queries.
+
+Instead of hard coding issues, we can move the applicaiton logic acccording to the display type to the server side i.e. back end. By that we can create different APIs according to our requirement.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
