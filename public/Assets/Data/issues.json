@@ -1,0 +1,56 @@
+{
+    "issues": [
+        {
+            "FrontPage": "./Assets/Images/April 2020.png",
+            "PublishedDate": "April 2020"
+        },
+        {
+            "FrontPage": "./Assets/Images/May 2020.png",
+            "PublishedDate": "May 2020"
+        },
+        {
+            "FrontPage": "./Assets/Images/June 2020.png",
+            "PublishedDate": "June 2020"
+        },
+        {
+            "FrontPage": "./Assets/Images/July 2020.png",
+            "PublishedDate": "July 2020"
+        },
+        {
+            "FrontPage": "./Assets/Images/August 2020.png",
+            "PublishedDate": "August 2020"
+        },
+        {
+            "FrontPage": "./Assets/Images/September 2020.png",
+            "PublishedDate": "September 2020"
+        },
+        {
+            "FrontPage": "./Assets/Images/October 2020.png",
+            "PublishedDate": "October 2020"
+        },
+        {
+            "FrontPage": "./Assets/Images/November 2020.png",
+            "PublishedDate": "November 2020"
+        },
+        {
+            "FrontPage": "./Assets/Images/December 2020.png",
+            "PublishedDate": "December 2020"
+        },
+        {
+            "FrontPage": "./Assets/Images/January 2021.png",
+            "PublishedDate": "January 2021"
+        },
+        {
+            "FrontPage": "./Assets/Images/February 2021.png",
+            "PublishedDate": "February 2021"
+        },
+        {
+            "FrontPage": "./Assets/Images/March 2021.png",
+            "PublishedDate": "March 2021"
+        },
+        {
+            "FrontPage": "./Assets/Images/April 2021.png",
+            "PublishedDate": "April 2021"
+        }
+    ]
+}

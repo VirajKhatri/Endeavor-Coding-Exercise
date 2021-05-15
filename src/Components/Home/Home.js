@@ -6,21 +6,15 @@ class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            displayValue: "grid",
-            resolution: "1920*1080"
+            displayValue: "grid-featured",
+            resolution: "1280*720"
         }
-    }
-
-    handleSubmit = (event) => {
-        // event.preventDefault()
-        // console.log(this.state.displayValue, this.state.resolution)
-        // return
     }
 
     render() {
         return (
             <div className="Home">
-                <form onSubmit={this.handleSubmit}>
+                <form>
                     <label>Select a display type: </label>
                     <select value={this.state.displayValue} onChange={(event) => this.setState({ displayValue: event.target.value })}>
                         <option value="grid">Grid</option>
@@ -50,8 +44,6 @@ class Home extends Component {
                         <option value="3440*1440">3440 * 1440</option>
                         <option value="3840*2160">3840 * 2160</option>
                     </select>
-
-                    <input type="submit" />
                 </form>
 
                 <Magazines displayValue={this.state.displayValue} resolution={this.state.resolution} />
