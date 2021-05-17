@@ -13,32 +13,28 @@ class Magazines extends Component {
 
     static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps !== prevState) {
-            var res = nextProps.resolution.split('*')
-            var imgWidth, imgHeight;
+            var res = nextProps.resolution
+            var imgWidth;
             if (nextProps.displayValue === "grid") {
-                imgWidth = Math.round((res[0] / 4) - 6)
-                imgHeight = Math.round(((res[1] - 70) / 3) - 10)
+                imgWidth = Math.round((res / 4) - 6)
             }
             else if (nextProps.displayValue === "grid-featured") {
-                imgWidth = Math.round(((res[0] * 0.6) / 4) - 6)
-                imgHeight = Math.round(((res[1] - 70) / 3) - 10)
+                imgWidth = Math.round(((res * 0.6) / 4) - 6)
             }
             else {
-                imgHeight = res[1] - 130
+                imgWidth = res
             }
             return {
                 displayValue: nextProps.displayValue,
                 resolution: nextProps.resolution,
                 displayCSS: {
-                    width: res[0] + "px",
-                    height: res[1] + "px"
+                    width: res + "px",
                 },
                 gridImgCSS: {
                     width: imgWidth + "px",
-                    height: imgHeight + "px"
                 },
                 featuredImgCSS: {
-                    height: imgHeight
+                    width: imgWidth + "px",
                 }
             };
         }
@@ -47,30 +43,26 @@ class Magazines extends Component {
     }
 
     componentDidMount() {
-        var res = this.state.resolution.split('*')
-        var imgWidth, imgHeight;
+        var res = this.state.resolution
+        var imgWidth;
         if (this.state.displayValue === "grid") {
-            imgWidth = Math.round((res[0] / 4) - 6)
-            imgHeight = Math.round(((res[1] - 70) / 3) - 10)
+            imgWidth = Math.round((res / 4) - 6)
         }
         else if (this.state.displayValue === "grid-featured") {
-            imgWidth = Math.round(((res[0] * 0.6) / 4) - 6)
-            imgHeight = Math.round(((res[1] - 70) / 3) - 10)
+            imgWidth = Math.round(((res * 0.6) / 4) - 6)
         }
         else {
-            imgHeight = res[1] - 130
+            imgWidth = res
         }
         this.setState({
             displayCSS: {
-                width: res[0] + "px",
-                height: res[1] + "px"
+                width: res + "px",
             },
             gridImgCSS: {
                 width: imgWidth + "px",
-                height: imgHeight + "px"
             },
             featuredImgCSS: {
-                height: imgHeight
+                width: imgWidth + "px",
             }
         })
         const requestHeaders = {
@@ -113,8 +105,8 @@ class Magazines extends Component {
                     </div>
                 </div>
             case "featured":
-                return <div style={this.state.featuredImgCSS}>
-                    <img style={{ height: "100%" }} src={this.state.issues[0].FrontPage} alt={this.state.issues[0].PublishedDate} />
+                return <div>
+                    <img style={this.state.featuredImgCSS} src={this.state.issues[0].FrontPage} alt={this.state.issues[0].PublishedDate} />
                     <div>
                         <h2>{this.state.issues[0].PublishedDate}</h2>
                         <div>

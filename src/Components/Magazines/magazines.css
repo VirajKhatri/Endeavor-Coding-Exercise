@@ -36,8 +36,6 @@ header {
 }
 
 .featured-values {
-    display: flex;
-    justify-content: space-around;
     margin-top: auto;
     margin-bottom: auto;
 }
