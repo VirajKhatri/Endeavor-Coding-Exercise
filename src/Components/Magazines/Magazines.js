@@ -14,27 +14,11 @@ class Magazines extends Component {
     static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps !== prevState) {
             var res = nextProps.resolution
-            var imgWidth;
-            if (nextProps.displayValue === "grid") {
-                imgWidth = Math.round((res / 4) - 6)
-            }
-            else if (nextProps.displayValue === "grid-featured") {
-                imgWidth = Math.round(((res * 0.6) / 4) - 6)
-            }
-            else {
-                imgWidth = res
-            }
             return {
                 displayValue: nextProps.displayValue,
                 resolution: nextProps.resolution,
                 displayCSS: {
-                    width: res + "px",
-                },
-                gridImgCSS: {
-                    width: imgWidth + "px",
-                },
-                featuredImgCSS: {
-                    width: imgWidth + "px",
+                    width: res + "px"
                 }
             };
         }
@@ -44,25 +28,9 @@ class Magazines extends Component {
 
     componentDidMount() {
         var res = this.state.resolution
-        var imgWidth;
-        if (this.state.displayValue === "grid") {
-            imgWidth = Math.round((res / 4) - 6)
-        }
-        else if (this.state.displayValue === "grid-featured") {
-            imgWidth = Math.round(((res * 0.6) / 4) - 6)
-        }
-        else {
-            imgWidth = res
-        }
         this.setState({
             displayCSS: {
                 width: res + "px",
-            },
-            gridImgCSS: {
-                width: imgWidth + "px",
-            },
-            featuredImgCSS: {
-                width: imgWidth + "px",
             }
         })
         const requestHeaders = {
@@ -84,8 +52,8 @@ class Magazines extends Component {
             case "grid-featured":
                 return <div className="display">
                     <div className="featured">
-                        <img className="featured-img" src={this.state.issues[0].FrontPage} alt={this.state.issues[0].PublishedDate} />
-                        <div className="featured-values">
+                        <img style={{ width: "95%" }} src={this.state.issues[0].FrontPage} alt={this.state.issues[0].PublishedDate} />
+                        <div>
                             <h2>{this.state.issues[0].PublishedDate}</h2>
                             <div>
                                 <button>Subscribe</button>
@@ -95,18 +63,16 @@ class Magazines extends Component {
                         </div>
                     </div>
                     <div className="old">
-                        <Issues issues={this.state.issues} displayValue={this.state.displayValue} gridImgCSS={this.state.gridImgCSS} />
+                        <Issues issues={this.state.issues} displayValue={this.state.displayValue} />
                     </div>
-                </div>
+                </div >
             case "grid":
-                return <div className="display">
-                    <div className="old">
-                        <Issues issues={this.state.issues} displayValue={this.state.displayValue} gridImgCSS={this.state.gridImgCSS} />
-                    </div>
+                return <div className="grid">
+                    <Issues issues={this.state.issues} displayValue={this.state.displayValue} />
                 </div>
             case "featured":
                 return <div>
-                    <img style={this.state.featuredImgCSS} src={this.state.issues[0].FrontPage} alt={this.state.issues[0].PublishedDate} />
+                    <img style={{ width: "95%" }} src={this.state.issues[0].FrontPage} alt={this.state.issues[0].PublishedDate} />
                     <div>
                         <h2>{this.state.issues[0].PublishedDate}</h2>
                         <div>
@@ -137,9 +103,9 @@ class Magazines extends Component {
 const Issues = (props) => {
     return props.issues.map((row, index) => {
         if (props.displayValue === "grid" && index < 12)
-            return <img key={index} style={props.gridImgCSS} src={row.FrontPage} alt={row.PublishedDate} />
+            return <img key={index} src={row.FrontPage} alt={row.PublishedDate} />
         else if (props.displayValue === "grid-featured" && index !== 0)
-            return <img key={index} style={props.gridImgCSS} src={row.FrontPage} alt={row.PublishedDate} />
+            return <img key={index} src={row.FrontPage} alt={row.PublishedDate} />
         return null
     })
 }
