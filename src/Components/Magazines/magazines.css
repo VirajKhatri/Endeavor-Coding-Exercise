@@ -10,12 +10,6 @@ header {
     height: fit-content;
 }
 
-/* 
-.display {
-    display: flex;
-    flex-direction: row;
-} */
-
 .featured {
     float: left;
     width: 40%;
@@ -51,6 +45,39 @@ img {
     margin: 5px auto;
 }
 
+.grid-img {
+    min-width: 125px;
+}
+
+@media screen and (max-width: 515px) {
+    .grid {
+        grid-template-columns: auto auto auto;
+    }
+    .old {
+        grid-template-columns: auto auto auto !important;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .grid {
+        grid-template-columns: auto auto;
+    }
+    .old {
+        grid-template-columns: auto auto !important;
+    }
+}
+
+@media screen and (max-width: 875px) {
+    .featured {
+        float: none;
+        width: auto;
+    }
+    .old {
+        float: none;
+        width: auto;
+    }
+}
+
 .featured-values {
     margin-top: auto;
     margin-bottom: auto;
@@ -68,55 +95,3 @@ h2 {
     padding: 0;
     margin: 0
 }
-
-/* .featured {
-    grid-area: featured;
-}
-
-.item1 {
-    grid-area: item1;
-}
-
-.item2 {
-    grid-area: item2;
-}
-
-.item3 {
-    grid-area: item3;
-}
-
-.item4 {
-    grid-area: item4;
-}
-
-.item5 {
-    grid-area: item5;
-}
-
-.item6 {
-    grid-area: item6;
-}
-
-.item7 {
-    grid-area: item7;
-}
-
-.item8 {
-    grid-area: item8;
-}
-
-.item9 {
-    grid-area: item9;
-}
-
-.item10 {
-    grid-area: item10;
-}
-
-.item11 {
-    grid-area: item11;
-}
-
-.item12 {
-    grid-area: item12;
-} */

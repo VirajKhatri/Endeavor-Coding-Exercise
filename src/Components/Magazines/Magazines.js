@@ -103,9 +103,9 @@ class Magazines extends Component {
 const Issues = (props) => {
     return props.issues.map((row, index) => {
         if (props.displayValue === "grid" && index < 12)
-            return <img key={index} src={row.FrontPage} alt={row.PublishedDate} />
+            return <img className="grid-img" key={index} src={row.FrontPage} alt={row.PublishedDate} />
         else if (props.displayValue === "grid-featured" && index !== 0)
-            return <img key={index} src={row.FrontPage} alt={row.PublishedDate} />
+            return <img className="grid-img" key={index} src={row.FrontPage} alt={row.PublishedDate} />
         return null
     })
 }
